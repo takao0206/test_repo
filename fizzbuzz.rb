@@ -1,13 +1,17 @@
 #!/usr/bin/env ruby
-# frozen_string_literal: true
 
-numbers = 1..20
+Range_start = 1
+Range_end = 20
+Fizz_number = 3
+Buzz_number = 5
+
+numbers = Range_start..Range_end
 numbers.each do |number|
-  if (number % 3).zero? && (number % 5).zero?
+  if (number % Fizz_number).zero? && (number % Buzz_number).zero?
     puts 'FizzBuzz'
-  elsif (number % 3).zero?
+  elsif (number % Fizz_number).zero?
     puts 'Fizz'
-  elsif (number % 5).zero?
+  elsif (number % Buzz_number).zero?
     puts 'Buzz'
   else
     puts number
