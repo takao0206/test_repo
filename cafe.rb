@@ -14,20 +14,12 @@ FOODS = [
   { name: 'ホットサンド', price: '410' }
 ].freeze
 
-def check_range(order_number, menus)
-  return unless order_number < 1 || order_number > menus.length
-
-  puts 'メニュー以外の番号が入力されました。はじめからやり直して下さい。'
-  exit
-end
-
 def take_order(menus)
   menus.each.with_index(1) do |menu, i|
     puts "(#{i})#{menu[:name]}: #{menu[:price]}円"
   end
   print '>'
   order_number = gets.to_i - 1
-  check_range(order_number + 1, menus)
   puts "#{menus[order_number][:name]}(#{menus[order_number][:price]}円)ですね。"
   order_number
 end
