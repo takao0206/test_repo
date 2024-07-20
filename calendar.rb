@@ -23,7 +23,7 @@ if month < 1 || month > 12
   exit
 end
 
-# カレンダー1か月分の範囲を作る。
+# カレンダー1か月分の日を作る。
 first_day = Date.new(year, month, 1)
 end_day = Date.new(year, month, -1)
 month_range = first_day..end_day
@@ -40,13 +40,13 @@ puts calendar_title.center(calendar_width)
 # カレンダーの曜日を表示する。
 puts Day_of_week
 
-# カレンダーの表示。カレンダーの一日とのカレンダーの曜日が合致するまで空白(3文字分)を入れる。
+# カレンダーの一日とその曜日が合致するまで空白(3文字分)を入れる。
 one_week_days = 7
 space_width = 3
 initial_space_counts = (first_day.cwday % one_week_days) * space_width
 print ' ' * initial_space_counts
 
-# カレンダーの表示。一日から月末まで。
+# カレンダーとして一日～月末まで表示する。
 month_range.each do |day|
   print format('%3d', day.day)
   # 土曜日で改行する。
